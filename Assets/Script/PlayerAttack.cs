@@ -28,9 +28,18 @@ public class PlayerAttack : MonoBehaviour
                         animator.SetBool("Left_Attack3", true);
                     else if (animator.GetBool("Left_Attack2"))
                         animator.SetBool("Left_Attack3", true);
+                    else if (animator.GetBool("Right_Down_Attack2"))
+                        animator.SetBool("Left_Attack3", true);
+                    else if (animator.GetBool("Left_Down_Attack2"))
+                        animator.SetBool("Left_Attack3", true);
+
                     else if (animator.GetBool("Right_Attack1"))
                         animator.SetBool("Left_Attack2", true);
                     else if (animator.GetBool("Left_Attack1"))
+                        animator.SetBool("Left_Attack2", true);
+                    else if (animator.GetBool("Right_Down_Attack1"))
+                        animator.SetBool("Left_Attack2", true);
+                    else if (animator.GetBool("Left_Down_Attack1"))
                         animator.SetBool("Left_Attack2", true);
                 }
                 else
@@ -44,9 +53,18 @@ public class PlayerAttack : MonoBehaviour
                         animator.SetBool("Right_Attack3", true);
                     else if (animator.GetBool("Right_Attack2"))
                         animator.SetBool("Right_Attack3", true);
+                    else if (animator.GetBool("Right_Down_Attack2"))
+                        animator.SetBool("Right_Attack3", true);
+                    else if (animator.GetBool("Left_Down_Attack2"))
+                        animator.SetBool("Right_Attack3", true);
+
                     else if (animator.GetBool("Left_Attack1"))
                         animator.SetBool("Right_Attack2", true);
                     else if(animator.GetBool("Right_Attack1"))
+                        animator.SetBool("Right_Attack2", true);
+                    else if (animator.GetBool("Right_Down_Attack1"))
+                        animator.SetBool("Right_Attack2", true);
+                    else if (animator.GetBool("Left_Down_Attack1"))
                         animator.SetBool("Right_Attack2", true);
                 }
                 else
@@ -54,11 +72,53 @@ public class PlayerAttack : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.J)) // L 킥
             {
+                if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.5f)
+                {
+                    if (animator.GetBool("Right_Down_Attack2"))
+                        animator.SetBool("Left_Down_Attack3", true);
+                    else if (animator.GetBool("Left_Down_Attack2"))
+                        animator.SetBool("Left_Down_Attack3", true);
+                    else if (animator.GetBool("Left_Attack2"))
+                        animator.SetBool("Left_Down_Attack3", true);
+                    else if (animator.GetBool("Right_Attack2"))
+                        animator.SetBool("Left_Down_Attack3", true);
 
+                    else if (animator.GetBool("Right_Down_Attack1"))
+                        animator.SetBool("Left_Down_Attack2", true);
+                    else if (animator.GetBool("Left_Down_Attack1"))
+                        animator.SetBool("Left_Down_Attack2", true);
+                    else if (animator.GetBool("Left_Attack1"))
+                        animator.SetBool("Left_Down_Attack2", true);
+                    else if (animator.GetBool("Right_Attack1"))
+                        animator.SetBool("Left_Down_Attack2", true);
+                }
+                else
+                    animator.SetBool("Left_Down_Attack1", true);
             }
             if (Input.GetKeyDown(KeyCode.K)) // R 킥
             {
+                if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.5f)
+                {
+                    if (animator.GetBool("Left_Down_Attack2"))
+                        animator.SetBool("Right_Down_Attack3", true);
+                    else if (animator.GetBool("Right_Down_Attack2"))
+                        animator.SetBool("Right_Down_Attack3", true);
+                    else if (animator.GetBool("Left_Attack2"))
+                        animator.SetBool("Right_Down_Attack3", true);
+                    else if (animator.GetBool("Right_Attack2"))
+                        animator.SetBool("Right_Down_Attack3", true);
 
+                    else if (animator.GetBool("Left_Down_Attack1"))
+                        animator.SetBool("Right_Down_Attack2", true);
+                    else if (animator.GetBool("Right_Down_Attack1"))
+                        animator.SetBool("Right_Down_Attack2", true);
+                    else if (animator.GetBool("Left_Attack1"))
+                        animator.SetBool("Right_Down_Attack2", true);
+                    else if (animator.GetBool("Right_Attack1"))
+                        animator.SetBool("Right_Down_Attack2", true);
+                }
+                else
+                    animator.SetBool("Right_Down_Attack1", true);
             }
         }
 
@@ -77,5 +137,13 @@ public class PlayerAttack : MonoBehaviour
         animator.SetBool("Right_Attack1", false);
         animator.SetBool("Right_Attack2", false);
         animator.SetBool("Right_Attack3", false);
+
+        animator.SetBool("Left_Down_Attack1", false);
+        animator.SetBool("Left_Down_Attack2", false);
+        animator.SetBool("Left_Down_Attack3", false);
+
+        animator.SetBool("Right_Down_Attack1", false);
+        animator.SetBool("Right_Down_Attack2", false);
+        animator.SetBool("Right_Down_Attack3", false);
     }
 }

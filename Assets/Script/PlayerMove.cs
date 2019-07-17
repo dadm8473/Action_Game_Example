@@ -36,6 +36,14 @@ public class PlayerMove : MonoBehaviour
 
         if(!Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A))
             Move_Stop();
+
+        if(Input.GetKeyDown(KeyCode.Space) && 
+          (animator.GetCurrentAnimatorStateInfo(0).IsName("Idel") ||
+           animator.GetCurrentAnimatorStateInfo(0).IsName("Back_Walk") ||
+           animator.GetCurrentAnimatorStateInfo(0).IsName("Forward_Walk")))
+        {
+            animator.SetBool("Jump", true);
+        }
     }
 
     void Forward_Move_Stop()
