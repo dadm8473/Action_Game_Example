@@ -61,4 +61,10 @@ public class PlayerMove : MonoBehaviour
         Forward_Move_Stop();
         Back_Move_Stop();
     }
+
+    void Landing()
+    {
+        if (animator.GetBool("Jump"))
+            animator.SetBool("Jump", false);
+    }
 }

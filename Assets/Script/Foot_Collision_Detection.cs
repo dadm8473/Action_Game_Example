@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class Foot_Collision_Detection : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject parent;
 
-    // Update is called once per frame
-    void Update()
+    void OnTriggerEnter(Collider col)
     {
-        
+        parent.SendMessage("Landing");
     }
 }
