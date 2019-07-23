@@ -20,18 +20,24 @@ public class PlayerMove : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.D))
         {
-            if (animator.GetBool("Back_Walk"))
-                Back_Move_Stop();
+            if (!animator.GetBool("Jump"))
+            {
+                if (animator.GetBool("Back_Walk"))
+                    Back_Move_Stop();
 
-            animator.SetBool("Forward_Walk", true);
+                animator.SetBool("Forward_Walk", true);
+            }
         }
 
         if(Input.GetKey(KeyCode.A))
         {
-            if (animator.GetBool("Forward_Walk"))
-                Forward_Move_Stop();
+            if (!animator.GetBool("Jump"))
+            {
+                if (animator.GetBool("Forward_Walk"))
+                    Forward_Move_Stop();
 
-            animator.SetBool("Back_Walk", true);
+                animator.SetBool("Back_Walk", true);
+            }
         }
 
         if(!Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A))
@@ -43,6 +49,7 @@ public class PlayerMove : MonoBehaviour
            animator.GetCurrentAnimatorStateInfo(0).IsName("Forward_Walk")))
         {
             animator.SetBool("Jump", true);
+            rb.velocity = Vector3.up * 17;
         }
     }
 

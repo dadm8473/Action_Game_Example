@@ -145,5 +145,7 @@ public class PlayerAttack : MonoBehaviour
         animator.SetBool("Right_Down_Attack1", false);
         animator.SetBool("Right_Down_Attack2", false);
         animator.SetBool("Right_Down_Attack3", false);
+
+        animator.SetBool("GetHit", false);
     }
 }

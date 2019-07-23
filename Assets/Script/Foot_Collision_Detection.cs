@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class Foot_Collision_Detection : MonoBehaviour
 {
-    public GameObject parent;
+    Animator animator;
+
+    void Start()
+    {
+        animator = transform.root.GetComponent<Animator>();
+    }
 
     void OnTriggerEnter(Collider col)
     {
-        parent.SendMessage("Landing");
+        if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.6f)
+            transform.root.SendMessage("Landing");
     }
 }
