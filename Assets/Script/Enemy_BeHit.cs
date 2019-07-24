@@ -13,7 +13,9 @@ public class Enemy_BeHit : MonoBehaviour
 
     void Update()
     {
-        if (animator.GetBool("BeHit") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99f)
+        if (animator.GetBool("BeHit") && 
+            animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.BeHit") &&
+            animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99f)
         {
             Debug.Log("false!!!");
             animator.SetBool("BeHit", false);
